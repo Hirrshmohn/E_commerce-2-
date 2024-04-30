@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Bar</title>
+<style>
+  /* Style for search bar */
+  #searchInput {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: 25%;
+    justify-content: 25%;
+  }
+  
+  li {
+    color: white;
+  }
+  
+.main {
+    padding: 20px;
+}
+
+.categories {
+    float: left;
+    width: 20%;
+}
+
+.products {
+    float: right;
+    width: 78%;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.add-to-cart {
+    background-color: #B70001;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.view-details {
+    background-color: #008CBA;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#toggleButton {
+    background-color: #333;
+    color: red;
+    border: none;
+    border-radius: 10px;
+}
+
+#toggleButton.active {
+    transform: rotate(90deg);
+    background-color: #00FF00;
+}
+
+nav {
+    border-top-left-radius: 30px 10px 30px 10px;
+    border-color: lime;
+    transform: rotate(360deg) transform 5s ease-out;
+}
+
+
+
+    .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #333;
+    color: red;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu ul li {
+    padding: 10px 0;
+}
+
+.menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: #00FFFA;
+    padding: 5px 15px;
+}
+
+.menu ul li a:hover {
+    background-color: #FF80AF;
+}
+
+.menu.active {
+    border-radius: 35px;
+    background: transparent;
+    
+}
+
+.menu.active ul {
+    max-height: 200px; /* Adjust height as needed */
+    transform: rotate(360deg);
+    
+}
+
+.menu.active input {
+    transform: ;
+    border-radius: 50px ;
+}
+
+button {
+        font-weight: bold;
+    }
+    .glowing-container {
+      position: relative;
+    }
+
+    #button3d {
+      display: inline-block;
+      padding: 20px 40px;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      background-color: aqua; /* color */
+      border: none;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+
+    #button3d:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translate(-50%, -50%) rotate(45deg);
+      z-index: -1;
+      transition: 0.3s ease-in-out;
+    }
+
+    #button3d:hover:before {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 10px;
+}
+
+header {
+    background: transparent;
+}
+
+@media only screen and (max-width: 550px) {
+    grid-template-columns: 1fr; 
+    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: 
+    "header"
+    ".menu"
+    "main"
+    ".product"
+    "footer";
+}
+
+.add-to-cart,
+.view-details {
+    border-radius: 10px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: aqua;
+}
+
+    #toggleButton.hover-effect {
+      color: red;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    #toggleButton.hover-effect:hover {
+      color: red;
+      background-color: black;
+      border: transparent;
+      margin-right: 150px;
+    }
+
+    #toggleButton.hover-effect:hover:after {
+      content: "menu";
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 0;
+      color: white; /* Adjust the text color */
+      background-color: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    #back.hover-effect {
+      color: blue;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    #back.hover-effect:hover {
+      color: red;
+      background-color: black;
+      border: transparent;
+      margin-right: 150px;
+    }
+
+    #back.hover-effect:hover:after {
+      content: "Additional Content";
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 0;
+      color: white; /* Adjust the text color */
+      background-color: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+
+       /* Styles for container and items */
+        
+        .scroll-container {
+            overflow-x: auto;
+            overflow-y: -10%;
+            white-space: nowrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border: none;
+        }
+
+        .scroll-item {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 150px;
+            border-radius: 50px;
+            background: default;
+            border: transparent;
+        }
+
+        /* Style for active item */
+        .active {
+            background-color: #ccc;
+        }
+        
+        /*    --x--    */
+
+        #item_div {
+            border-radius: 100px;
+            border: none transparent;
+            background: transparent;
+        }
+        
+        #scroll-category {
+            align-content: center;
+            justify-content: center;
+            font-family: ;
+        }
+        
+        
+
+</style>
+<script type="text/javascript">
+
+        function scrollToCategory(categoryId) {
+        // Get the div element by its ID
+        var categoryDiv = document.getElementById(categoryId);
+        
+        // Scroll to the category div
+        categoryDiv.scrollIntoView({ behavior: 'smooth' });
+        
+        // Optional: Add active class to highlight the category
+        // Remove active class from all items
+        var items = document.querySelectorAll('.scroll-item');
+        items.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        
+        // Add active class to the clicked category
+        categoryDiv.classList.add('active');
+    }
+</script>
+</head>
+<body class="homepage">
+<header style=" align-items: center; 
+                justify-content: center;">
+        <h2 style="align-items: center; 
+                justify-content: center;">
+            
+            My E-Cm website </h2>
+            
+            <nav class="menu">
+       <button  id="toggleButton"
+                class="hover-effect">
+           &#x2630;
+        </button>
+        <ul>
+            <li>   
+<!-- Search bar -->
+<input type="text" id="searchInput" placeholder="Search...">
+</li>
+<li> <button 
+        onclick="openNewWindow()">Contact Us </button>
+</li>
+<li>        <button
+    onclick="window.dialog.showModal();"
+    id="POP-UP">Cart Items</button></li>
+</ul>
+    <dialog id="dialog">
+        <form method="dialog">
+            <h2>Cart-Items</h2>
+            
+            <p id="cart-items"></p>
+            <h4>Buy Soon!</h4>
+            &emsp; &emsp; &emsp; &emsp; &emsp; 
+                <div id="cartContainer"></div> <!-- Cart container added for displaying cart items -->
+    
+    <h1>
+        Cart 
+    </h1>
+    
+    <div id="cartItems"></div> <!-- Cart items will be displayed here -->
+
+    <!-- Button to go back to homepage -->
+    <button onclick="goToHomepage()">Go Back to Homepage</button>
+    <button onclick="clearCartItems();">Cancel All</button>
+        </form>
+    </dialog>
+
+</header>
+
+<main>
+    <h3 style="align-items: center;justify-content: center;">All products :</h3>
+<ul>
+    <h2 id="pets">Pets :</h2>
+    
+  <li class="search-item">
+      <div>
+                      <div 
+                      class="product"
+                      style="border-radius: 20px; " >
+                    <img src="" alt="Product 3">
+                    <h3>Snake</h3>
+                    <span class="price"
+                        id="3">$420.00</span>
+                        <br />
+                    <button
+                    class="add-to-cart"
+                    id="quantity_Snake"
+                    onclick="addToCart('Snake', 420.00)">Add to Cart</button>
+                     <button class="view-details">
+                        <details>
+                        <summary>
+                        View Detail
+                        </summary>
+                        <p>A cute pet mammal</p>
+                        <p>Friendly snakes</p>
+                            <br><br>
+                        
+                        </details>
+                        </button>
+                    <br />
+                    <br />
+                            <input type="number" id="quantity_Snake" min="1" max="10"><br><br>
+                     <button 
+                    onclick="openBuyWindow();
+                     openBuyWindow('&emsp;&emsp; $ 420 ', '&emsp;Snake')"
+                    id="button3d"
+                    >Buy</button>
+                </div>
+      </div>
+      <br />
+      <br />
+  </li>
+  
+  
+    <h2 id="fruits">Fruits :</h2>
+  
+  
+  <li class="search-item">
+  <div 
+  class="product"
+  style="border-radius: 20px; "
+  >
+                    <img src="" alt="Product 3">
+                    <h3>Banana</h3>
+                    <span class="price"
+                        id="3">$420.00</span>
+                        <br />
+                    <button 
+                    class="add-to-cart"
+                    id="quantity_Banana"
+                    onclick="addToCart('Banana', 420.00)">Add to Cart</button>
+                    <button class="view-details">
+                        <details>
+                        <summary>
+                        View Detail
+                        </summary>
+                        <p>A yellow fruit which is good for health.</p>    <br><br>
+                        </details>
+                        </button>
+                    <br />
+                    <br />
+                        <input type="number" id="quantity_banana" min="1" max="10"><br><br>
+                     <button 
+                    onclick="openBuyWindow();
+                             openBuyWindow('&emsp; &emsp; $420 ', '&emsp;Banana')"
+                    id="button3d"
+                    >Buy</button>
+                </div>
+                </li>
+                
+                
+                
+                <br />
+                <br />
+  <li class="search-item">
+      
+  </li>
+  
+  
+  
+  <li class="search-item">
+      <div 
+      class="product"
+      style="border-radius: 20px; ">
+                    <img src="" alt="Product 3">
+                    <h3>pineapple</h3>
+                    <span class="price"
+                        id="3">$420.00</span>
+                        <br />
+                    <button
+                    class="add-to-cart"
+                    id="quantity_pineapple"
+                    onclick="addToCart('pineapple', 420.00)">Add to Cart</button>
+                     <button class="view-details">
+                        <details>
+                        <summary>
+                        View Detail
+                        </summary>
+                        <p>healthy fruit which is good for everyone. </p> 
+                        <p>
+                            A nice yellow fruit.
+                        </p>  <br><br>
+                        </details>
+                        </button>
+                    <br />
+                    <br />
+                        <input type="number" id="quantity_pineapple" min="1" max="10"><br><br>
+                     <button 
+                    onclick="openBuyWindow();
+                     openBuyWindow(' &emsp;  &emsp;   $420', '&emsp;Pineapple')"
+                    id="button3d"
+                    >Buy</button>
+                </div>
+                </li>
+                
+                
+                
+                <br />
+                <br />
+
+    
+  <li class="search-item">
+  
+      <br />
+      <br />
+  </li>
+  
+  <li class="search-item">
+      
+  </li>
+</ul>
+</main>
+    <br />
+    <br />
+      <br />
+      
+      <span id="scroll-category">Categories</span>
+      
+      <br />
+      
+      <div class="scroll-container">
+    <!-- Multiple divs for categories -->
+    <button 
+        onclick="scrollToCategory('pets')"
+        id="item_div">
+        <div class="scroll-item">pet</div>
+    </button>
+        
+    <button
+        onclick="scrollToCategory('fruits')"
+        id="item_div">
+        <div class="scroll-item">fruits</div>
+    </button>
+    <div class="scroll-item">Category 3</div>
+    <div class="scroll-item">Category 4</div>
+    <div class="scroll-item">Category 5</div>
+    <div class="scroll-item">Category 6</div>
+    <div class="scroll-item">Category 7</div>
+    <div class="scroll-item">Category 8</div>
+    <div class="scroll-item">Category 9</div>
+    <div class="scroll-item">Category 10</div>
+</div>
+      
+      
+<br />
+    <br />
+      <br />
+    <br />
+    <br />
+      <br />
+    <br />
+    <footer>
+        <p>&copy; 2024_Simple E-commerce Website.</p>
+ <div id="new_window" style="display: none;">
+        
+        
+<head>
+    <style>
+        .contact-inputs:focus {
+        border: 2px solid #00FFFD;
+        border
+        }
+
+        .contact-inputs::placeholder {
+        color: #a9a9a9;
+        }
+        
+        @media (max-width:800px) {
+           .contact-inputs {
+           width: 80vw;
+           }
+           .contact-right {
+           display: none;
+           }
+        }
+                
+        @keyframes rainbow-background {
+ 0% { border-color: #ff0000; }
+ 8.333% { border-color: #ff8000; }
+ 16.667% { border-color: #ffff00; }
+ 25.000% { border-color: #80ff00; }
+ 33.333% { border-color: #00ff00; }
+ 41.667% { border-color: #00ff80; }
+ 50.000% { border-color: #00ffff; }
+ 58.333% { border-color: #0080ff; }
+ 66.667% { border-color: #0000ff; }
+ 75.000% { border-color: #8000ff; }
+ 83.333% { border-color: #ff00ff; }
+ 91.667% { border-color: #ff0080; }
+ 100.00% { border-color: #ff0000; }
+}
+#RainbowBackground {
+ animation: rainbow-background 5s infinite;
+}
+
+
+    #back.hover-effect {
+      color: blue;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    #back.hover-effect:hover {
+      color: red;
+      background-color: black;
+      border: transparent;
+      margin-right: 150px;
+    }
+
+    #back.hover-effect:hover:after {
+      content: "Additional Content";
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 0;
+      color: white; /* Adjust the text color */
+      background-color: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+
+    </style>
+    
+</head>
+<body class="form">
+
+<div class="contact-container"
+     style="height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;">
+    
+    
+    
+<form action="https://api.web3forms.com/submit" method="POST" class="contact-left" style="        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+        background-color: #000000;
+        border-radius: 30px;
+        width: 500px;">
+    
+    &emsp;
+
+
+ <div class="contact-left-title">
+        <h2 style="
+        font-weight: 600;
+        color: red;
+        font-size: 40px;
+        margin-bottom: 5px;
+        margin-left: 70px; ">
+             Contact Us 
+             </h2>
+             
+             
+
+        <hr style="
+        border: none;
+        width: 300px;
+        height:5px;
+        background-color: #DA2E09;
+        border-radius: 10px;
+        margin-bottom: 20px;">
+        
+    </div>
+    
+     <input type="hidden" name="access_key" value="b562a100-b5cb-435c-8fde-3c4b07e08aac">
+     
+     
+    <input type="name" name="name" placeholder="Your Name" class="contact-inputs" style="        width:400px;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #666;
+        border-radius: 50px;
+        margin-left: 50px;
+                .contact-inputs:focus {
+        border: 2px solid #00FFFD;
+        }" required>
+        
+        
+            <input type="email" name="email" placeholder="Your Email" class="contact-inputs" style="        width:400px;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #666;
+        border-radius: 50px;
+        margin-left: 50px;
+                .contact-inputs:focus {
+        border: 2px solid #00FFFD;
+        }"required>
+        
+        
+    <input type="number" name="number" placeholder="Mobile Number here" class="contact-inputs" style="        width:400px;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #666;
+        border-radius: 50px;
+        margin-left: 50px;        .contact-inputs:focus {
+        border: 2px solid #00FFFD;
+        }" required/>
+        
+        
+    <textarea name="message" placeholder="Your Address" class="contact-inputs" style="        width:400px;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #666;
+        border-radius: 50px;
+        margin-left: 50px;
+        height: 140px;
+        padding-top: 15px;
+        border-radius: 20px;
+        margin-left: 50px;
+        padding: 10px 50px;
+        border-focus: 2px solid #00FFFD;
+        }" required>
+        
+    </textarea>
+    
+    
+            <button
+        type="submit"
+        id="RainbowBackground"
+        style="display: flex;
+        align-items: center;
+        padding: 15px 30px;
+        font-size: 16px;
+        color: #fff;
+        gap: 10px;
+        border-radius: 50px;
+        background-color: #FA6D86;
+        cursor: pointer;
+        margin-right: 50px;
+        margin-left: 120px;
+        border-bottom: none;
+        border-right: none;">
+                
+                Submit
+                
+                &#x2794;
+        
+        </button>
+        
+        &emsp;
+        
+        <aside style=
+        "margin-left: 100px">
+            
+            
+        <details style=
+        "color: #0011CB;
+        background-color: #C6FF00;
+        border-radius: 20px;">
+            
+        <summary style="color: red;">
+            
+                
+        <h4>NOTE:</h4>
+        
+         </summary>
+         
+        <ul>
+            
+            <li>
+                
+        Please fill the form to Get the product
+        
+            </li>
+            
+            <li>
+                
+        Only cash on delivery available
+        
+            </li>
+            
+        </ul>
+        
+        </details>
+        
+    </aside>
+    
+</form>
+
+  <div class="contact-right">
+    <img src="https://drive.google.com/file/d/14CrOB2EcuLs6WRVLA9qjFccD2QB5ywND/view?usp=drivesdk">
+    
+  </div>
+  
+ </div>
+ <br />
+ <br />
+            
+             <button 
+                    style=
+                    "background-color: transparent;
+                    color: red;
+                    border-color: none; 
+                    border-shadow: none; 
+                    border: transparent;
+                    "
+                    onclick="goToHomepage()"
+                    class="hover-effect"
+                    id="back">
+                  <h2>
+                        &#x21E6;
+                  </h2>
+             </button>
+             
+             
+             <!--
+             
+             
+             // button to delete latest input // 
+
+
+              <button onclick="deleteLatestInput()">Delete Latest Input</button>
+
+
+
+              -->
+
+ <div id="buy_window" style="display: none;">
+    
+    
+    
+    
+    
+    
+    
+    <html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+        <title> Buy </title>
+        <style>
+        .Buy {
+            background-color: #333;
+        }
+        
+        
+    #back.hover-effect {
+      color: blue;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    #back.hover-effect:hover {
+      color: red;
+      background-color: black;
+      border: transparent;
+      margin-right: 150px;
+    }
+
+    #back.hover-effect:hover:after {
+      content: "Additional Content";
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 0;
+      color: white; /* Adjust the text color */
+      background-color: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+                    
+        @keyframes rainbow-background {
+ 0% { border-color: #ff0000; }
+ 8.333% { border-color: #ff8000; }
+ 16.667% { border-color: #ffff00; }
+ 25.000% { border-color: #80ff00; }
+ 33.333% { border-color: #00ff00; }
+ 41.667% { border-color: #00ff80; }
+ 50.000% { border-color: #00ffff; }
+ 58.333% { border-color: #0080ff; }
+ 66.667% { border-color: #0000ff; }
+ 75.000% { border-color: #8000ff; }
+ 83.333% { border-color: #ff00ff; }
+ 91.667% { border-color: #ff0080; }
+ 100.00% { border-color: #ff0000; }
+}
+#RainbowBackground {
+ animation: rainbow-background 5s infinite;
+}
+
+
+
+        </style>
+    </head>
+    <body class="Buy">
+        <header>
+        <!-- Button to go back to homepage -->
+    <button onclick="goToHomepage()"
+            class="hover-effect"
+            id="back">
+        
+        &#x21E6; 
+        
+        </button>
+        </header>
+        
+        
+        
+        <main>
+<div class="contact-container"
+     style="height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;">
+    
+        <form action="https://api.web3forms.com/submit" 
+              method="POST" 
+              class="contact-left" 
+              style=
+       "display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+        background-color: #FF9BCB;
+        border-radius: 30px;
+        width: 500px;">
+            
+            
+            
+            <h4 
+                            id="rate"
+                            style="
+                        margin-left: 50px;
+                        margin-right: 50px; 
+                        align-items: center;
+                        justify-content: center; ">
+                
+            </h4>
+                        
+                        
+                        
+            <h4 
+                            id="Things"
+                            style="
+                        margin-left: 50px;
+                        margin-right: 50px; 
+                        align-items: center;
+                        justify-content: center; ">
+                
+            </h4> 
+                        
+                                   
+            <h4 
+                            id="quantity"
+                            style="
+                        margin-left: 50px;
+                        margin-right: 50px; 
+                        align-items: center;
+                        justify-content: center; ">
+                
+                
+                </h4>
+                <input
+                        type="number"
+                        id="quantity"
+                        style=
+                        "background-color: white;
+                        border-color: #E7000C;
+                        box-shadow: none; 
+                        align-items: center; 
+                        justify-content: center; margin-right: 50px; 
+                        margin-left: 160px; 
+                        "/>
+            
+            
+        <button
+        type="submit"
+        id="RainbowBackground"
+        style="display: flex;
+        align-items: center;
+        padding: 15px 30px;
+        font-size: 16px;
+        color: #fff;
+        gap: 10px;
+        border-radius: 50px;
+        background-color: #FA6D86;
+        cursor: pointer;
+        margin-right: 50px;
+        margin-left: 120px;
+        border-bottom: none;
+        border-right: none;">
+            
+            Buy 
+            
+            &#x2794;
+            
+        </button>
+        
+        &emsp;
+        
+        
+    <div id="cartItems">
+        
+    </div>
+                                <!-- Cart items will be displayed here -->
+
+
+        </form>
+        </div>
+        </main>
+        
+        
+        
+    <script>
+        function openBuyWindow(amount, productName) {
+    // Get the amount and product name from the arguments
+    var rateElement = document.getElementById('rate');
+    var thingsElement = document.getElementById('Things');
+    var rateElement = document.getElementById('quantity');
+    
+
+    // Display the amount and product name in the h4 elements
+    rateElement.innerText = "Amount: " + amount;
+    thingsElement.innerText = "Item Name: " + productName;
+}
+    </script>
+    
+    </body>
+    
+    </html>
+    
+    
+    
+    
+    
+    
+    
+ </div>
+
+
+
+    </footer>
+    
+    
+    
+<script>
+
+                                  // JavaScript for search functionality //
+  
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('keyup', function() {
+    const searchText = this.value.toLowerCase();
+    const items = document.querySelectorAll('.search-item');
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(searchText)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+  
+                          // toggleButton for menu //
+  
+        document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleButton');
+    const menu = document.querySelector('.menu');
+
+    toggleButton.addEventListener('click', function() {
+        menu.classList.toggle('active');
+    });
+});
+                            //-- transform button --//
+
+const myElement = document.getElementById('toggleButton');
+
+                        // Add active class to rotate //
+
+myElement.classList.add('active');
+
+                    // Remove active class to revert rotation
+                    
+myElement.classList.remove('active');
+
+                                    // new window //
+
+function openNewWindow() {
+    var newWindowContent = document.getElementById('new_window').innerHTML;
+    var newWindow = window.open('', '_blank', 'width=600,height=400');
+    newWindow.document.write(newWindowContent);
+    newWindow.document.close();
+}
+
+                                      // Buy window //
+  
+  function openBuyWindow() {
+    var newWindowContent = document.getElementById('buy_window').innerHTML;
+    var newWindow = window.open('', '_blank', 'width=600,height=400');
+    newWindow.document.write(newWindowContent);
+    newWindow.document.close();
+}
+
+                        // Function to add item to cart //
+        function addToCart(productName, amount) {
+            var quantity = document.getElementById("quantity_" + productName.toLowerCase()).value;
+            var cartItem = {name: productName, amount: amount, quantity: quantity};
+            var existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            existingCartItems.push(cartItem);
+            localStorage.setItem("cartItems", JSON.stringify(existingCartItems));
+            updateCartDisplay(); 
+                                    // Update cart display on the homepage
+        }
+        
+                                        // Function to update cart display on the homepage
+        function updateCartDisplay() {
+            var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            var cartContainer = document.getElementById("cartContainer");
+            cartContainer.innerHTML = "<h2>Cart</h2>";
+            if (cartItems.length > 0) {
+                cartItems.forEach(function(item) {
+                    cartContainer.innerHTML += "<p>" + item.name + " - Quantity: " + item.quantity + "</p>";
+                });
+            } else {
+                cartContainer.innerHTML += "<p>No items in cart</p>";
+            }
+        }
+        
+                                        // Function to go back to homepage
+        function goToHomepage() {
+            window.location.href = "";
+        }
+
+                                    // Update cart display when the page loads
+        window.onload = function() {
+            updateCartDisplay();
+        };
+
+                                  // delete function //
+
+                                        // Function to remove items saved in local storage
+function clearCartItems() {
+    localStorage.removeItem("cartItems");
+    updateCartDisplay();
+    
+                            // Update cart display to reflect the changes //
+}
+    
+</script>
+</body>
+</html>
